@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from 'typeorm'
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, JoinTable} from 'typeorm'
+import { CategoryEntity } from './caterory.entity';
 
 @Entity('products')
 export class ProductsEntity extends BaseEntity {
@@ -10,4 +11,7 @@ export class ProductsEntity extends BaseEntity {
     price: number;
     @Column()
     category_id: number;
+
+    @JoinTable ()
+    caterory: CategoryEntity[]
 }
